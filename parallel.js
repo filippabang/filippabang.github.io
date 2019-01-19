@@ -359,32 +359,26 @@ function highlight(d) {
   path(d, highlighted, color(d.Name,1));
 
 
-  //var info = d3.select("#info-people").attr({
-  //})
-
-
- // var info = d3.select("#info-people").append("text")
-  svg.append("text")
-  .attr("x",50)
-  .attr("y",5)
-  .append('svg:tspan')
+  d3.select("#name")
   .attr('x', 10)
   .attr('dy', 100)
   .text(function() { return d.Name; })
-  .append('svg:tspan')
-  .attr('x', 10)
-  .attr('dy', 20)
-  .text(function() { return 'Major: '+ d.Major; })
-  .append('svg:tspan')
-  .attr('x', 10)
-  .attr('dy', 20)
-  .text(function() { return 'Expectation: '+ d.Expectation; })
-  .append('svg:tspan')
-  .attr('x', 10)
-  .attr('dy', 20)
-  .text(function() { return 'Interest: '+ d.Interest; })
- }
 
+  d3.select("#major")
+  .attr('x', 10)
+  .attr('dy', 100)
+  .text(function() { return [d.Major]; })
+
+  d3.select("#expectation")
+  .attr('x', 10)
+  .attr('dy', 100)
+  .text(function() { return [d.Expectation]; })
+
+  d3.select("#interest")
+  .attr('x', 10)
+  .attr('dy', 100)
+  .text(function() { return [d.Interest]; })
+}
 
 
 
@@ -393,14 +387,6 @@ function unhighlight() {
   d3.select("#foreground").style("opacity", null);
   d3.selectAll(".row").style("opacity", null);
   highlighted.clearRect(0,0,w,h);
-
-  d3.selectAll("text").remove();
-
-  //svg.append("text").attr({
-  //})
-  //  .text(function() {
-  //  return [];  // Value of the text
-  //  });
 
 }
 
@@ -547,7 +533,7 @@ function brush() {
     d3.select("#exclude-data").attr("disabled", "disabled");
   };
 
-  // total by food group
+  // total by person
   var tallies = _(selected)
     .groupBy(function(d) {
       return d.Name; })

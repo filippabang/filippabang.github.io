@@ -2,15 +2,14 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-    <title>Nutrient Database Explorer</title>
+    <title>Explore People In The Class</title>
     <link rel="stylesheet" type="text/css" href="parallel.css" />
   </head>
   <body>
   <div id="header">
-    <h1>Nutrient Explorer</h1>
+    <h1>Explore People</h1>
     <button title="Zoom in on selected data" id="keep-data" disabled="disabled">Keep</button>
     <button title="Remove selected data" id="exclude-data" disabled="disabled">Exclude</button>
-    <button title="Export data as CSV" id="export-data">Export</button>
     <div class="controls">
       <strong id="rendered-count"></strong>/<strong id="selected-count"></strong><!--<strong id="data-count"></strong>-->
       <div class="fillbar"><div id="selected-bar"><div id="rendered-bar">&nbsp;</div></div></div>
@@ -33,10 +32,38 @@
   <div id="wrap">
     <div class="third" id="controls">
       <div class="bright">
-        <h3>What is this?</h3>
-        <p id="info-peoples">
+        <h4>Name</h4>
+        <p id="name">
+        </p>
+        <h4>Major</h4>
+        <p id="major">
+        </p>
+        <h4>Expect to learn in Information Visualisation</h4>
+        <p id="expectation">
+        </p>
+        <h4>Interests</h4>
+        <p id="interest">
+        </p>
+        <p>
+        <br/><br/><br/><br/><br/>
         </p>
       </div>
+
+
+    </div>
+    <div  class="third">
+      <small>
+        <!--Last rendered <strong id="render-speed"></strong> lines-->
+      </small>
+      <h3>People</h3>
+      <p id="legend">
+      </p>
+    </div>
+    <div class="third">
+      <h3>Sample of 25 people <input type="text" id="search"></input></h3>
+      <p id="food-list">
+      </p>
+
 
       <div class="little-box">
         <h3>Controls</h3>
@@ -52,28 +79,15 @@
         <h3>Credits &amp; License</h3>
           <p>
           Adapted from examples by<br/>
-          <a href="http://bl.ocks.org/1341021">Mike Bostock</a> and <a href="http://bl.ocks.org/1341281">Jason Davies</a><br/>
-          </p>
-          <p>
-            Copyright &copy; 2012, Kai Chang<br/>
-            All rights reserved. Released under the <a href="http://opensource.org/licenses/bsd-3-clause">BSD License</a>.
+          Mike Bostock, Jason Davies and Kai Chang <br/>
           </p>
         </p>
       </div>
+
     </div>
-    <div  class="third">
-      <small>
-        <!--Last rendered <strong id="render-speed"></strong> lines-->
-      </small>
-      <h3>People</h3>
-      <p id="legend">
-      </p>
-    </div>
-    <div class="third">
-      <h3>Sample of 25 people <input type="text" id="search" placeholder="Search People..."></input></h3>
-      <p id="food-list">
-      </p>
-    </div>
+
+
+
   </div>
   </body>
   <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
