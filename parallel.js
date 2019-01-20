@@ -345,7 +345,7 @@ function render_stats(i,n,render_speed) {
 // Feedback on selection
 function selection_stats(opacity, n, total) {
   d3.select("#data-count").text(total);
-  d3.select("#selected-count").text(n);
+  d3.select("#selected-count").text(total);
   d3.select("#selected-bar").style("width", (100*n/total) + "%");
   d3.select("#opacity").text((""+(opacity*100)).slice(0,4) + "%");
 }
