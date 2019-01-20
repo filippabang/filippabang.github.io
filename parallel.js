@@ -810,5 +810,5 @@ function light_theme() {
 
 function search(selection,str) {
   pattern = new RegExp(str,"i")
-  return _(selection).filter(function(d) { return pattern.exec(d.name); });
+  return _(selection).filter(function(d) { return pattern.exec(d.Name); });
 }
