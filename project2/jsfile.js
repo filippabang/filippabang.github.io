@@ -5,7 +5,16 @@ var question = 'A university education is more important for a boy than for a gi
 var year = '1995-1999';
 
 var format = function(d) {
-    return d3.format(' .00f')(d) //+ 'M';
+    if(d==0){
+        var f = '   -  Disagree';
+    }
+    else if(d==100){
+        var f = '   -   Agree';
+    }
+    else{
+        var f = ' '
+    }
+    return d3.format(' .00f')(d) + f //+ 'M';
 }
 
 
