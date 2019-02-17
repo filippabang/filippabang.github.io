@@ -1,6 +1,7 @@
 text {
   fill: #333;
-  font-size: 12px; }
+  font-size: 12px;
+  font-family="Saira" }
 
 .background {
   fill: none;
@@ -23,4 +24,21 @@ text {
 
 .dropdown{
   margin-bottom: 40px;
+  margin-right: 40px;
    }
+
+#header {
+  border-bottom: 1px solid rgba(100,100,100,0.35);
+  background: #e2e2e2;
+  padding: 20px 24px 20px;
+  line-height: 24px;
+}
+
+#wrapper {
+  display: flex;
+}
+
+.little-box {
+  width: 268px;
+  float: left;
+}

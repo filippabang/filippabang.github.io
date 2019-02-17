@@ -5,30 +5,36 @@ var question = 'A university education is more important for a boy than for a gi
 var year = '1995-1999';
 
 var format = function(d) {
-    //d = d / 1000000;
-    //console.log(d);
-    return d3.format(',.02f')(d) //+ 'M';
+    return d3.format(' .00f')(d) //+ 'M';
 }
 
 
 var map = d3.geomap.choropleth()
     .geofile('topojson/world/countries.json')
-    .colors(colorbrewer.YlGnBu[9])
-   // .column('YR2010')
+    //.colors(colorbrewer.YlGnBu[6])
+    .colors(colorbrewer.YlGn[9])
     .column('1995-1999 A university education is more important for a boy than for a girl')
     .format(format)
     .legend(true)
-    .unitId('ISO3');
-    //.unitId('iso3');
+    .unitId('iso3');
+
+    d3.select("#question")
+      .attr('x', 10)
+      .attr('dy', 100)
+      .text(function() { return year + ' ' + question; })
 
 
 function updateMap(question, year){
     console.log(year + ' ' + question);
     map.column(year + ' ' + question).update();
 
+    d3.select("#question")
+      .attr('x', 10)
+      .attr('dy', 100)
+      .text(function() { return year + ' ' + question; })
+
 };
 
-//createMap('YR2010');
 
 createDropdown(); //create the dropdown menu
 createDropdownVariable(); //create the dropdown menu
@@ -36,12 +42,13 @@ createDropdownVariable(); //create the dropdown menu
 
 function createDropdown(){
     //add a select element for the dropdown menu
-    var dropdown = d3.select("body")
+    var dropdown = d3.select("#body")
         .append("div")
         .attr("class","dropdown") //for positioning menu with css
         .html("<h3>Select Timeperiod:</h3>")
         .append("select")
-        .on("change", function(){year=this.value; updateMap(question, this.value)});// changeAttribute(this.value, csvData) }); //changes expressed attribute
+        .on("change", function(){year=this.value; updateMap(question, this.value)})
+;// changeAttribute(this.value, csvData) }); //changes expressed attribute
     
     
     //create each option element within the dropdown
@@ -59,7 +66,7 @@ function createDropdown(){
 
 function createDropdownVariable(){
     //add a select element for the dropdown menu
-    var dropdown = d3.select("body")
+    var dropdown = d3.select("#body2")
         .append("div")
         .attr("class","dropdown") //for positioning menu with css
         .html("<h3>Select Question:</h3>")
@@ -80,9 +87,8 @@ function createDropdownVariable(){
 
 
 
-//d3.csv('sp.pop.totl.csv', function(error, data) {
-d3.csv('dataWiso.csv', function(error, data) {
+d3.csv('dataWisoNorm.csv', function(error, data) {
     var selection = d3.select('#map').datum(data);
-    //console.log(selection);
+
     map.draw(selection);
 });
