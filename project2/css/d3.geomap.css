@@ -27,6 +27,7 @@ text {
   margin-right: 40px;
    }
 
+
 #header {
   border-bottom: 1px solid rgba(100,100,100,0.35);
   background: #e2e2e2;
@@ -38,7 +39,13 @@ text {
   display: flex;
 }
 
-.little-box {
-  width: 268px;
+.little-box-left {
+  width: 600px;
   float: left;
 }
+
+.little-box-right {
+  width: 600px;
+  float: right;
+}
+

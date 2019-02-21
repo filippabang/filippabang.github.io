@@ -57,6 +57,7 @@ function createDropdown(){
         .html("<h3>Select Timeperiod:</h3>")
         .append("select")
         .on("change", function(){year=this.value; updateMap(question, this.value)})
+        .style("font-family","Gill Sans")
 ;// changeAttribute(this.value, csvData) }); //changes expressed attribute
     
     
@@ -80,8 +81,8 @@ function createDropdownVariable(){
         .attr("class","dropdown") //for positioning menu with css
         .html("<h3>Select Question:</h3>")
         .append("select")
-        .on("change", function(){question=this.value; updateMap(this.value, year)});// changeAttribute(this.value, csvData) }); //changes expressed attribute
-
+        .on("change", function(){question=this.value; updateMap(this.value, year)})// changeAttribute(this.value, csvData) }); //changes expressed attribute
+        .style("font-family","Gill Sans");
     //create each option element within the dropdown
     dropdown.selectAll("options")
         .data(['A university education is more important for a boy than for a girl', 'Are you religious', 'Feeling of happiness', 'Men make better political leaders than women do', 'State of health', 'Approve woman as a single parent', 'Importance of family', 'Importance of friends']) // keyarray
